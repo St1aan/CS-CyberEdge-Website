@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Hunting | CS CyberEdge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #e6f1ff; }
+        .bg-navy-900 { background-color: #0a192f; }
+        .bg-navy-800 { background-color: #112240; }
+        .text-cyan { color: #00d2ff; }
+        .bg-gradient-cyber { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); }
+        .glass { background: rgba(17, 34, 64, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .grid-bg { background-image: linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield" class="w-8 h-8 text-cyan"></i>
+                    <span class="text-xl font-extrabold tracking-tight text-white">CS <span class="text-cyan">CyberEdge</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Home</a>
+                    <a href="products.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Products</a>
+                    <a href="services.html" class="text-white hover:text-cyan transition-colors font-medium">Services</a>
+                    <a href="about.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Contact</a>
+                    <a href="contact.html" class="bg-gradient-cyber px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-cyan/20">Get Started</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none"><i data-lucide="menu" class="w-8 h-8"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-b border-white/10 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-300 font-medium">Home</a>
+            <a href="products.html" class="block py-2 text-gray-300 font-medium">Products</a>
+            <a href="services.html" class="block py-2 text-white font-medium">Services</a>
+            <a href="about.html" class="block py-2 text-gray-300 font-medium">About</a>
+            <a href="contact.html" class="block py-2 text-gray-300 font-medium">Contact</a>
+            <a href="contact.html" class="block mt-4 bg-gradient-cyber text-center py-3 rounded-xl font-bold">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden grid-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-cyan/10 text-cyan text-sm font-bold mb-6" data-aos="fade-right">SERVICE DEEP DIVE</div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight" data-aos="fade-up">
+                        Threat <span class="text-cyan">Hunting</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10" data-aos="fade-up" data-aos-delay="100">
+                        Automated alerts catch known threats. Threat hunting finds the ones that slipped through. Our certified hunters proactively search your environment for adversary behaviour that no alert ever fired on — before it becomes a crisis.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="200">
+                        <a href="contact.html" class="bg-gradient-cyber px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-cyan/20">Start a Hunt</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="zoom-in">
+                    <div class="relative">
+                        <div class="w-full h-80 bg-navy-800 rounded-3xl border border-white/10 flex items-center justify-center">
+                            <i data-lucide="crosshair" class="w-32 h-32 text-cyan/20"></i>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-orange-500 text-white px-6 py-2 rounded-lg font-bold shadow-lg animate-pulse">HUNT IN PROGRESS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- What It Does -->
+    <section class="py-24 bg-navy-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-8">What It Does</h2>
+                    <div class="space-y-6 text-gray-400 text-lg">
+                        <p>Advanced adversaries don't trigger alerts — they move slowly, live off the land, and blend into the noise of your environment. Threat hunting is the practice of proactively looking for these actors using human expertise, analytical tradecraft, and a deep understanding of attacker methodology.</p>
+                        <p>Every hunt begins with a hypothesis drawn from current threat intelligence and your specific environment. Our hunters then systematically analyse logs, endpoint telemetry, and network data to either confirm or rule out adversary activity. Whether we find something or not, you receive a detailed report of what was examined and what was concluded.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="lightbulb" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">Hypothesis Development</h4>
+                        <p class="text-sm text-gray-500">Each hunt is grounded in a specific theory about attacker behaviour relevant to your environment.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="database" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">Log & Telemetry Analysis</h4>
+                        <p class="text-sm text-gray-500">Deep analysis of SIEM, EDR, and network data to surface subtle attacker indicators.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="network" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">Lateral Movement Detection</h4>
+                        <p class="text-sm text-gray-500">Focused analysis on attacker pivot techniques, credential abuse, and internal reconnaissance.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="file-search" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">Hunt Reports</h4>
+                        <p class="text-sm text-gray-500">Documented findings, methodology, and actionable recommendations delivered after every engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-white mb-12 text-center">Key Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors" data-aos="fade-up">
+                <h3 class="text-xl font-bold text-white mb-4">MITRE ATT&CK Aligned</h3>
+                <p class="text-gray-400">Every hunt is mapped to MITRE ATT&CK tactics and techniques, providing a structured, repeatable methodology that covers the full adversary kill chain and ensures consistent coverage over time.</p>
+            </div>
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-xl font-bold text-white mb-4">Hypothesis-Driven Methodology</h3>
+                <p class="text-gray-400">Rather than aimlessly searching data, each hunt begins with a clearly defined hypothesis about how a specific threat actor or technique might manifest in your environment — making every hunt focused and measurable.</p>
+            </div>
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-xl font-bold text-white mb-4">Detection Conversion</h3>
+                <p class="text-gray-400">Successful hunt findings don't disappear after the engagement. We convert confirmed hunting techniques into permanent detections in your SIEM or EDR, so you gain lasting security improvements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="py-24 bg-navy-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-16">Who It's For</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-10 rounded-3xl bg-navy-900 border border-white/5">
+                    <i data-lucide="shield-check" class="w-12 h-12 text-cyan mx-auto mb-6"></i>
+                    <h4 class="text-xl font-bold text-white mb-4">Mature Security Teams</h4>
+                    <p class="text-gray-400">Organisations with established detection capabilities looking to go beyond automated alerts and validate their security posture with human-led analysis.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-navy-900 border border-white/5">
+                    <i data-lucide="rotate-ccw" class="w-12 h-12 text-cyan mx-auto mb-6"></i>
+                    <h4 class="text-xl font-bold text-white mb-4">Post-Incident Validation</h4>
+                    <p class="text-gray-400">After an incident is resolved, threat hunting confirms the environment is fully clean and no secondary persistence or footholds were missed.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-navy-900 border border-white/5">
+                    <i data-lucide="badge-check" class="w-12 h-12 text-cyan mx-auto mb-6"></i>
+                    <h4 class="text-xl font-bold text-white mb-4">Compliance-Driven Orgs</h4>
+                    <p class="text-gray-400">Meet proactive threat detection requirements under frameworks like ISO 27001, NIST, and industry-specific regulations with documented hunt engagements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-6">Find what your alerts can't see.</h2>
+            <p class="text-xl text-gray-400 mb-10">Contact us to scope a threat hunting engagement or establish an ongoing hunting programme for your environment.</p>
+            <a href="contact.html" class="inline-block bg-gradient-cyber px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-2xl shadow-cyan/30">Start a Hunt</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-white/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-gray-500 text-sm">&copy; 2025 CS CyberEdge | All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 800, once: true });
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    </script>
+</body>
+</html>

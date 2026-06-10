@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishWatcher | CS CyberEdge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #e6f1ff; }
+        .bg-navy-900 { background-color: #0a192f; }
+        .bg-navy-800 { background-color: #112240; }
+        .text-cyan { color: #00d2ff; }
+        .bg-gradient-cyber { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); }
+        .glass { background: rgba(17, 34, 64, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .grid-bg { background-image: linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield" class="w-8 h-8 text-cyan"></i>
+                    <span class="text-xl font-extrabold tracking-tight text-white">CS <span class="text-cyan">CyberEdge</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Home</a>
+                    <a href="products.html" class="text-white hover:text-cyan transition-colors font-medium">Products</a>
+                    <a href="services.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Services</a>
+                    <a href="about.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Contact</a>
+                    <button onclick="openInterestModal()" class="bg-gradient-cyber px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-cyan/20 cursor-pointer">Register Interest</button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none"><i data-lucide="menu" class="w-8 h-8"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-b border-white/10 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-300 font-medium">Home</a>
+            <a href="products.html" class="block py-2 text-white font-medium">Products</a>
+            <a href="services.html" class="block py-2 text-gray-300 font-medium">Services</a>
+            <a href="about.html" class="block py-2 text-gray-300 font-medium">About</a>
+            <a href="contact.html" class="block py-2 text-gray-300 font-medium">Contact</a>
+            <button onclick="openInterestModal()" class="block w-full mt-4 bg-gradient-cyber text-center py-3 rounded-xl font-bold cursor-pointer">Register Interest</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden grid-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="flex flex-wrap items-center gap-3 mb-6" data-aos="fade-right">
+                        <div class="inline-block px-4 py-1.5 rounded-full bg-cyan/10 text-cyan text-sm font-bold">AI-DRIVEN ANALYSIS</div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-bold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse inline-block"></span>
+                            Coming Soon
+                        </div>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight" data-aos="fade-up">
+                        Phish<span class="text-cyan">Watcher</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10" data-aos="fade-up" data-aos-delay="100">
+                        Stop phishing in its tracks. Automated email analysis that identifies malicious links, attachments, and social engineering tactics before your team clicks.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="200">
+                        <button onclick="openInterestModal()" class="bg-gradient-cyber px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-cyan/20 hover:opacity-90 transition-opacity cursor-pointer">Register Your Interest</button>
+                        <a href="products.html" class="inline-flex items-center justify-center gap-2 border border-white/20 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/5 transition-colors">View All Products</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="zoom-in">
+                    <div class="relative">
+                        <div class="w-full h-80 bg-navy-800 rounded-3xl border border-white/10 flex items-center justify-center">
+                            <i data-lucide="mail-warning" class="w-32 h-32 text-cyan/20"></i>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-amber-500 text-navy-900 px-5 py-2 rounded-lg font-bold shadow-lg text-sm">PHISH DETECTED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- What It Does -->
+    <section class="py-24 bg-navy-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-8">What It Does</h2>
+                    <div class="space-y-6 text-gray-400 text-lg">
+                        <p>PhishWatcher provides an automated first line of defence against email-borne threats. By integrating with your mail flow or providing a simple submission portal, it subjects every suspicious email to a battery of technical tests.</p>
+                        <p>It dissects headers, inspects attachments in secure sandboxes, and follows redirects to identify the true destination of embedded links. The result is an actionable verdict delivered in seconds, not hours.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="link-2" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">URL Sandbox</h4>
+                        <p class="text-sm text-gray-500">Detonate suspicious links in a safe environment.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="paperclip" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">File Analysis</h4>
+                        <p class="text-sm text-gray-500">Static and dynamic analysis of attachments.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="shield-check" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">IOC Extraction</h4>
+                        <p class="text-sm text-gray-500">Automatically pull IPs, domains, and hashes.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="cpu" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">AI Scoring</h4>
+                        <p class="text-sm text-gray-500">Machine learning models to detect intent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-white mb-12 text-center">Key Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-4">Automated IOC Extraction</h3>
+                <p class="text-gray-400">Instantly extract and format Indicators of Compromise for use in your firewalls, EDR, or SIEM.</p>
+            </div>
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-4">Actionable Verdicts</h3>
+                <p class="text-gray-400">Clear "Malicious", "Suspicious", or "Clean" verdicts with a detailed report on the technical findings.</p>
+            </div>
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-4">SOC Integration</h3>
+                <p class="text-gray-400">Reduce your security team's workload by automating the triage of employee-reported suspicious emails.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="py-20 text-center bg-navy-800/30">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Be the first to know when PhishWatcher launches</h2>
+            <p class="text-gray-400 mb-8">Register your interest and we'll notify you as soon as PhishWatcher is ready.</p>
+            <button onclick="openInterestModal()" class="inline-block bg-gradient-cyber px-10 py-5 rounded-full font-bold text-xl hover:opacity-90 transition-opacity shadow-2xl shadow-cyan/30 cursor-pointer">Register Your Interest</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-white/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-gray-500 text-sm">&copy; 2025 CS CyberEdge | All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Interest Modal -->
+    <div id="interest-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 backdrop-blur-sm" onclick="if(event.target===this)closeInterestModal()">
+        <div class="bg-navy-800 border border-white/10 rounded-3xl p-8 max-w-md w-full mx-4 relative">
+            <button onclick="closeInterestModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-1">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan mb-6">
+                <i data-lucide="bell" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Register Your Interest</h3>
+            <p class="text-gray-400 mb-6">Be among the first to know when PhishWatcher launches.</p>
+            <div id="interest-form-wrap">
+                <form id="interest-form">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                        <input type="text" id="interest-name" class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan/50 transition-colors" placeholder="Your name">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Work Email <span class="text-cyan">*</span></label>
+                        <input type="email" id="interest-email" required class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan/50 transition-colors" placeholder="you@company.com">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Company <span class="text-gray-500 font-normal">(optional)</span></label>
+                        <input type="text" id="interest-company" class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan/50 transition-colors" placeholder="Your company">
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-cyber py-3.5 rounded-xl font-bold text-white hover:opacity-90 transition-opacity">Register Interest</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 800, once: true });
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+        function openInterestModal() {
+            const modal = document.getElementById('interest-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+        function closeInterestModal() {
+            const modal = document.getElementById('interest-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('interest-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('interest-name').value || 'Not provided';
+            const email = document.getElementById('interest-email').value;
+            const company = document.getElementById('interest-company').value || 'Not provided';
+            const subject = encodeURIComponent('Interest in PhishWatcher — CS CyberEdge');
+            const body = encodeURIComponent('Hi CS CyberEdge,\n\nI would like to register my interest in PhishWatcher.\n\nName: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\n\nPlease notify me when PhishWatcher becomes available.\n\nThank you');
+            window.open('mailto:contact@cscyberedge.com?subject=' + subject + '&body=' + body);
+            document.getElementById('interest-form-wrap').innerHTML = '<div class="text-center py-6"><div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h4 class="text-xl font-bold text-white mb-2">You\'re on the list!</h4><p class="text-gray-400 mb-6">We\'ll notify you as soon as PhishWatcher launches.</p><button onclick="closeInterestModal()" class="px-6 py-2.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-colors">Close</button></div>';
+        });
+    </script>
+</body>
+</html>

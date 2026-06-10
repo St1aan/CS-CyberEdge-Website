@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Response | CS CyberEdge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #e6f1ff; }
+        .bg-navy-900 { background-color: #0a192f; }
+        .bg-navy-800 { background-color: #112240; }
+        .text-cyan { color: #00d2ff; }
+        .bg-gradient-cyber { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); }
+        .glass { background: rgba(17, 34, 64, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .grid-bg { background-image: linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield" class="w-8 h-8 text-cyan"></i>
+                    <span class="text-xl font-extrabold tracking-tight text-white">CS <span class="text-cyan">CyberEdge</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Home</a>
+                    <a href="products.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Products</a>
+                    <a href="services.html" class="text-white hover:text-cyan transition-colors font-medium">Services</a>
+                    <a href="about.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Contact</a>
+                    <a href="contact.html" class="bg-gradient-cyber px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-cyan/20">Get Started</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none"><i data-lucide="menu" class="w-8 h-8"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-b border-white/10 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-300 font-medium">Home</a>
+            <a href="products.html" class="block py-2 text-gray-300 font-medium">Products</a>
+            <a href="services.html" class="block py-2 text-white font-medium">Services</a>
+            <a href="about.html" class="block py-2 text-gray-300 font-medium">About</a>
+            <a href="contact.html" class="block py-2 text-gray-300 font-medium">Contact</a>
+            <a href="contact.html" class="block mt-4 bg-gradient-cyber text-center py-3 rounded-xl font-bold">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden grid-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-cyan/10 text-cyan text-sm font-bold mb-6" data-aos="fade-right">SERVICE DEEP DIVE</div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight" data-aos="fade-up">
+                        Incident <span class="text-cyan">Response</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10" data-aos="fade-up" data-aos-delay="100">
+                        When a breach is confirmed, every minute counts. Our OSCP and CISSP certified responders engage immediately — containing the threat, preserving evidence, determining the blast radius, and guiding your recovery with precision.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="200">
+                        <a href="contact.html" class="bg-gradient-cyber px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-cyan/20">Activate Response</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="zoom-in">
+                    <div class="relative">
+                        <div class="w-full h-80 bg-navy-800 rounded-3xl border border-white/10 flex items-center justify-center">
+                            <i data-lucide="shield-alert" class="w-32 h-32 text-cyan/20"></i>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-red-500 text-white px-6 py-2 rounded-lg font-bold shadow-lg animate-pulse">BREACH CONFIRMED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- What It Does -->
+    <section class="py-24 bg-navy-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-8">What It Does</h2>
+                    <div class="space-y-6 text-gray-400 text-lg">
+                        <p>A security breach demands an immediate, expert response. Our Incident Response service puts certified professionals directly into your environment — remotely or on-site — to take decisive action. We contain the attack, stop the bleeding, and begin the forensic work needed to understand exactly what happened.</p>
+                        <p>Beyond the technical response, we help you navigate the difficult decisions that come with a breach: what to tell the board, when to notify regulators, and how to communicate with affected customers. We stay with you from the moment of engagement through full recovery.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="shield-off" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">Containment</h4>
+                        <p class="text-sm text-gray-500">Immediate isolation of affected systems to stop the spread and limit damage.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="search" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">Digital Forensics</h4>
+                        <p class="text-sm text-gray-500">Deep-dive investigation to determine the attack vector, dwell time, and full scope.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="trash-2" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">Eradication</h4>
+                        <p class="text-sm text-gray-500">Complete removal of the attacker's foothold, malware, and persistence mechanisms.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-navy-800 border border-white/5">
+                        <i data-lucide="scale" class="text-cyan mb-4"></i>
+                        <h4 class="font-bold text-white mb-2">Regulatory Support</h4>
+                        <p class="text-sm text-gray-500">Guidance on breach notification obligations to regulators and affected parties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-white mb-12 text-center">Key Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors" data-aos="fade-up">
+                <h3 class="text-xl font-bold text-white mb-4">24/7 Retainer Coverage</h3>
+                <p class="text-gray-400">Breaches don't respect business hours. Our retainer clients get around-the-clock access to certified responders ready to engage the moment an incident is declared.</p>
+            </div>
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-xl font-bold text-white mb-4">Forensic Investigation</h3>
+                <p class="text-gray-400">We answer the hard questions: how did they get in, what did they access, how long were they there, and what did they take? Evidence is preserved in a forensically sound manner throughout.</p>
+            </div>
+            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-xl font-bold text-white mb-4">Recovery & Hardening</h3>
+                <p class="text-gray-400">We don't just restore operations — we deliver targeted hardening recommendations to close the gaps that allowed the incident to occur, reducing the likelihood of recurrence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="py-24 bg-navy-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-16">Who It's For</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-10 rounded-3xl bg-navy-900 border border-white/5">
+                    <i data-lucide="building-2" class="w-12 h-12 text-cyan mx-auto mb-6"></i>
+                    <h4 class="text-xl font-bold text-white mb-4">Businesses Under Attack</h4>
+                    <p class="text-gray-400">Any organisation facing an active breach or suspected compromise that needs immediate expert assistance.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-navy-900 border border-white/5">
+                    <i data-lucide="store" class="w-12 h-12 text-cyan mx-auto mb-6"></i>
+                    <h4 class="text-xl font-bold text-white mb-4">SMEs Without In-House IR</h4>
+                    <p class="text-gray-400">Small and mid-size organisations that lack an internal incident response capability can access enterprise-grade expertise on demand.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-navy-900 border border-white/5">
+                    <i data-lucide="landmark" class="w-12 h-12 text-cyan mx-auto mb-6"></i>
+                    <h4 class="text-xl font-bold text-white mb-4">Regulated Industries</h4>
+                    <p class="text-gray-400">Finance, healthcare, and other regulated sectors that need forensically sound handling and documented breach notification support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-6">Don't face a breach alone.</h2>
+            <p class="text-xl text-gray-400 mb-10">Contact us now to establish a retainer or get immediate support for an active incident.</p>
+            <a href="contact.html" class="inline-block bg-gradient-cyber px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-2xl shadow-cyan/30">Get Help Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-white/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-gray-500 text-sm">&copy; 2025 CS CyberEdge | All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 800, once: true });
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    </script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS CyberEdge | Proactive Cybersecurity for Growing Organisations</title>
+    <meta name="description" content="CS CyberEdge provides proactive cybersecurity solutions for small and medium organisations. Founded by CISSP, CISM, OSCP, and CCSKv5 certified professionals with a decade of experience in financial and technology sectors.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #e6f1ff;
+        }
+        .bg-navy-900 { background-color: #0a192f; }
+        .bg-navy-800 { background-color: #112240; }
+        .text-cyan { color: #00d2ff; }
+        .bg-gradient-cyber {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+        }
+        .border-cyber {
+            border-color: rgba(0, 210, 255, 0.3);
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+            transform: translateY(-5px);
+            border-color: rgba(0, 210, 255, 0.6);
+        }
+        .glass {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a192f; }
+        ::-webkit-scrollbar-thumb { background: #112240; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3a7bd5; }
+
+        /* Animated Grid Background */
+        .grid-bg {
+            background-image: linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield" class="w-8 h-8 text-cyan"></i>
+                    <span class="text-xl font-extrabold tracking-tight text-white">CS <span class="text-cyan">CyberEdge</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-cyan transition-colors font-medium">Home</a>
+                    <a href="products.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Products</a>
+                    <a href="services.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Services</a>
+                    <a href="about.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Contact</a>
+                    <a href="products.html" class="bg-gradient-cyber px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-cyan/20">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-b border-white/10 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block py-2 text-white font-medium">Home</a>
+            <a href="products.html" class="block py-2 text-gray-300 font-medium">Products</a>
+            <a href="services.html" class="block py-2 text-gray-300 font-medium">Services</a>
+            <a href="about.html" class="block py-2 text-gray-300 font-medium">About</a>
+            <a href="contact.html" class="block py-2 text-gray-300 font-medium">Contact</a>
+            <a href="products.html" class="block mt-4 bg-gradient-cyber text-center py-3 rounded-xl font-bold">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden grid-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight" data-aos="fade-up">
+                Enterprise-Grade <br><span class="text-transparent bg-clip-text bg-gradient-cyber">Cybersecurity.</span> <br>Built for Every Organisation.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+                Practical monitoring, threat intelligence, breach detection, and incident response — helping small and medium organisations reduce preventable cyber risk.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="products.html" class="bg-gradient-cyber px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-cyan/20">Explore Products</a>
+                <a href="contact.html" class="border border-white/20 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/5 transition-colors">Get in Touch</a>
+            </div>
+        </div>
+        <!-- Decorative blobs -->
+        <div class="absolute top-1/4 -left-20 w-72 h-72 bg-cyan/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 -right-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[150px]"></div>
+    </header>
+
+    <!-- Value Prop Strip -->
+    <section class="py-12 bg-navy-800/50 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex items-center gap-4 group" data-aos="fade-up">
+                    <div class="w-12 h-12 rounded-lg bg-cyan/10 flex items-center justify-center text-cyan">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Real-Time Monitoring</h3>
+                        <p class="text-sm text-gray-500">Continuous protection around the clock.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-lg bg-cyan/10 flex items-center justify-center text-cyan">
+                        <i data-lucide="brain-circuit"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Actionable Intelligence</h3>
+                        <p class="text-sm text-gray-500">Contextual insights, not just alerts.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-lg bg-cyan/10 flex items-center justify-center text-cyan">
+                        <i data-lucide="wallet"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Affordable Subscriptions</h3>
+                        <p class="text-sm text-gray-500">Elite security at accessible prices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Suite Overview -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">The Product Suite</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Comprehensive cyber risk coverage — from breach detection and surface monitoring to risk assessment and social defence.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- BreachWatcher — Live -->
+            <a href="breachwatcher.html" class="relative overflow-hidden bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group">
+                <div class="absolute top-0 right-0 overflow-hidden w-24 h-24 z-10">
+                    <div class="absolute top-4 -right-5 rotate-45 bg-emerald-500 text-white text-[10px] font-extrabold tracking-widest py-1 w-28 text-center shadow-sm">LIVE</div>
+                </div>
+                <i data-lucide="user-x" class="w-10 h-10 text-cyan mb-6"></i>
+                <h3 class="text-xl font-bold text-white mb-3">BreachWatcher</h3>
+                <p class="text-gray-400 mb-6">Real-time dark web monitoring for your credentials, domains, and identities.</p>
+                <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+            </a>
+
+            <!-- PhishWatcher — Coming Soon -->
+            <a href="phishwatcher.html" class="relative overflow-hidden bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group">
+                <div class="absolute top-0 right-0 overflow-hidden w-24 h-24 z-10">
+                    <div class="absolute top-4 -right-5 rotate-45 bg-amber-500 text-navy-900 text-[9px] font-extrabold tracking-wide py-1 w-28 text-center shadow-sm">COMING SOON</div>
+                </div>
+                <i data-lucide="mail-warning" class="w-10 h-10 text-cyan mb-6"></i>
+                <h3 class="text-xl font-bold text-white mb-3">PhishWatcher</h3>
+                <p class="text-gray-400 mb-6">Automated phishing email analysis with IOC extraction and AI-driven verdicts.</p>
+                <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+            </a>
+
+            <!-- SurfaceWatch — Coming Soon -->
+            <a href="surfacewatch.html" class="relative overflow-hidden bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group">
+                <div class="absolute top-0 right-0 overflow-hidden w-24 h-24 z-10">
+                    <div class="absolute top-4 -right-5 rotate-45 bg-amber-500 text-navy-900 text-[9px] font-extrabold tracking-wide py-1 w-28 text-center shadow-sm">COMING SOON</div>
+                </div>
+                <i data-lucide="scan" class="w-10 h-10 text-cyan mb-6"></i>
+                <h3 class="text-xl font-bold text-white mb-3">SurfaceWatch</h3>
+                <p class="text-gray-400 mb-6">Attack surface management — assets, CVEs, exposed services, and supplier risk in one platform.</p>
+                <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+            </a>
+
+            <!-- SocialDefender — Coming Soon -->
+            <a href="socialdefender.html" class="relative overflow-hidden bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group">
+                <div class="absolute top-0 right-0 overflow-hidden w-24 h-24 z-10">
+                    <div class="absolute top-4 -right-5 rotate-45 bg-amber-500 text-navy-900 text-[9px] font-extrabold tracking-wide py-1 w-28 text-center shadow-sm">COMING SOON</div>
+                </div>
+                <i data-lucide="shield-check" class="w-10 h-10 text-cyan mb-6"></i>
+                <h3 class="text-xl font-bold text-white mb-3">SocialDefender</h3>
+                <p class="text-gray-400 mb-6">Structured security assessment of your social media accounts — privacy settings, connected apps, login history, and recovery options.</p>
+                <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+            </a>
+
+            <!-- SecureScore — Coming Soon -->
+            <a href="securescore.html" class="relative overflow-hidden bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group">
+                <div class="absolute top-0 right-0 overflow-hidden w-24 h-24 z-10">
+                    <div class="absolute top-4 -right-5 rotate-45 bg-amber-500 text-navy-900 text-[9px] font-extrabold tracking-wide py-1 w-28 text-center shadow-sm">COMING SOON</div>
+                </div>
+                <i data-lucide="clipboard-check" class="w-10 h-10 text-cyan mb-6"></i>
+                <h3 class="text-xl font-bold text-white mb-3">SecureScore</h3>
+                <p class="text-gray-400 mb-6">Questionnaire-based cyber risk assessment with a prioritised remediation roadmap for SMBs.</p>
+                <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Professional Services -->
+    <section class="py-24 bg-navy-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Professional Services</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Expert-led security services to respond, hunt, and engineer resilience into your environment.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <a href="incident-management.html" class="bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group" data-aos="fade-up">
+                    <i data-lucide="clipboard-list" class="w-10 h-10 text-cyan mb-6"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Incident Management</h3>
+                    <p class="text-gray-400 mb-6">Structured coordination and oversight to manage security incidents from detection through resolution.</p>
+                    <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+                </a>
+
+                <a href="incident-response.html" class="bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group" data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="shield-alert" class="w-10 h-10 text-cyan mb-6"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Incident Response</h3>
+                    <p class="text-gray-400 mb-6">Rapid containment, investigation, and remediation by certified responders when a breach occurs.</p>
+                    <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+                </a>
+
+                <a href="threat-hunting.html" class="bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="crosshair" class="w-10 h-10 text-cyan mb-6"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Threat Hunting</h3>
+                    <p class="text-gray-400 mb-6">Proactive adversary search across your environment to uncover hidden threats before they activate.</p>
+                    <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+                </a>
+
+                <a href="detection-engineering.html" class="bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group" data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="cpu" class="w-10 h-10 text-cyan mb-6"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Detection Engineering</h3>
+                    <p class="text-gray-400 mb-6">Custom detection rule development and tuning to surface real threats and reduce alert fatigue.</p>
+                    <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Strip -->
+    <section class="py-16 bg-gradient-cyber">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm font-bold uppercase tracking-widest text-white/70 mb-8">Founded by World-Class Expertise</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center text-white text-lg md:text-xl font-bold italic">
+                <span>CISSP, CISM, OSCP &amp; CCSKv5 Certified</span>
+                <span class="hidden md:block w-2 h-2 rounded-full bg-white/30"></span>
+                <span>10+ Years Combined Experience</span>
+                <span class="hidden md:block w-2 h-2 rounded-full bg-white/30"></span>
+                <span>Financial &amp; Technology Sector Experts</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Banner -->
+    <section class="py-24 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to protect what matters?</h2>
+            <p class="text-xl text-gray-400 mb-10">Partner with CS CyberEdge to close the front door on cyber threats before they impact your organisation.</p>
+            <a href="contact.html" class="inline-block bg-gradient-cyber px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-2xl shadow-cyan/30">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-white/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i data-lucide="shield" class="w-8 h-8 text-cyan"></i>
+                        <span class="text-xl font-extrabold text-white">CS <span class="text-cyan">CyberEdge</span></span>
+                    </div>
+                    <p class="text-gray-400 max-w-sm">Proactive cybersecurity solutions for small and medium organisations. Founded by certified professionals with deep expertise across the financial and technology sectors.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="index.html" class="hover:text-cyan transition-colors">Home</a></li>
+                        <li><a href="products.html" class="hover:text-cyan transition-colors">Products</a></li>
+                        <li><a href="about.html" class="hover:text-cyan transition-colors">About</a></li>
+                        <li><a href="contact.html" class="hover:text-cyan transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="mailto:contact@cscyberedge.com" class="hover:text-cyan transition-colors">contact@cscyberedge.com</a></li>
+                        <li class="flex gap-4 mt-6">
+                            <a href="#" class="w-10 h-10 rounded-lg bg-navy-800 flex items-center justify-center hover:bg-cyan/20 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-lg bg-navy-800 flex items-center justify-center hover:bg-cyan/20 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-lg bg-navy-800 flex items-center justify-center hover:bg-cyan/20 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8">
+                &copy; 2025 CS CyberEdge | All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
