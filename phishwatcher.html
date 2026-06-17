@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhishWatcher | CS CyberEdge</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <title>PhishWatcher — AI Phishing Detection | CS CyberEdge</title>
+    <meta name="description" content="PhishWatcher delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
+    <link rel="canonical" href="https://www.cscyberedge.com/phishwatcher.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CS CyberEdge">
+    <meta property="og:title" content="PhishWatcher — AI Phishing Detection | CS CyberEdge">
+    <meta property="og:description" content="PhishWatcher delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
+    <meta property="og:url" content="https://www.cscyberedge.com/phishwatcher.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PhishWatcher — AI Phishing Detection | CS CyberEdge">
+    <meta name="twitter:description" content="PhishWatcher delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -17,6 +30,11 @@
         .bg-gradient-cyber { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); }
         .glass { background: rgba(17, 34, 64, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .grid-bg { background-image: linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; }
+    
+        /* Fix: bg-navy-800 opacity variants (Tailwind can't resolve custom colours with / modifier) */
+        .bg-navy-800\/20 { background-color: rgba(17, 34, 64, 0.20); }
+        .bg-navy-800\/30 { background-color: rgba(17, 34, 64, 0.30); }
+        .bg-navy-800\/50 { background-color: rgba(17, 34, 64, 0.50); }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -25,16 +43,17 @@
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="shield" class="w-8 h-8 text-cyan"></i>
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="Images/logo.png" alt="CS CyberEdge" class="h-10 w-auto">
                     <span class="text-xl font-extrabold tracking-tight text-white">CS <span class="text-cyan">CyberEdge</span></span>
-                </div>
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Home</a>
                     <a href="products.html" class="text-white hover:text-cyan transition-colors font-medium">Products</a>
                     <a href="services.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Services</a>
                     <a href="about.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">About</a>
                     <a href="contact.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Contact</a>
+                    <a href="intelboard.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">IntelBoard</a>
                     <button onclick="openInterestModal()" class="bg-gradient-cyber px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-cyan/20 cursor-pointer">Register Interest</button>
                 </div>
                 <div class="md:hidden">
@@ -48,6 +67,7 @@
             <a href="services.html" class="block py-2 text-gray-300 font-medium">Services</a>
             <a href="about.html" class="block py-2 text-gray-300 font-medium">About</a>
             <a href="contact.html" class="block py-2 text-gray-300 font-medium">Contact</a>
+            <a href="intelboard.html" class="block py-2 text-gray-300 font-medium">IntelBoard</a>
             <button onclick="openInterestModal()" class="block w-full mt-4 bg-gradient-cyber text-center py-3 rounded-xl font-bold cursor-pointer">Register Interest</button>
         </div>
     </nav>
@@ -77,9 +97,8 @@
                 </div>
                 <div class="md:w-1/2" data-aos="zoom-in">
                     <div class="relative">
-                        <div class="w-full h-80 bg-navy-800 rounded-3xl border border-white/10 flex items-center justify-center">
-                            <i data-lucide="mail-warning" class="w-32 h-32 text-cyan/20"></i>
-                        </div>
+                        <img src="Images/phishwatcher-logo.png" alt="PhishWatcher Logo"
+                             class="w-full h-80 object-contain rounded-3xl">
                         <div class="absolute -top-4 -right-4 bg-amber-500 text-navy-900 px-5 py-2 rounded-lg font-bold shadow-lg text-sm">PHISH DETECTED</div>
                     </div>
                 </div>
@@ -88,7 +107,7 @@
     </header>
 
     <!-- What It Does -->
-    <section class="py-24 bg-navy-800/30">
+    <section class="py-24 bg-navy-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div>
@@ -125,18 +144,18 @@
     </section>
 
     <!-- Key Features -->
-    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="bg-navy-900 py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-white mb-12 text-center">Key Features</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors">
+            <div class="p-8 rounded-3xl border border-white/10 bg-navy-800 hover:border-cyan/50 transition-colors">
                 <h3 class="text-xl font-bold text-white mb-4">Automated IOC Extraction</h3>
                 <p class="text-gray-400">Instantly extract and format Indicators of Compromise for use in your firewalls, EDR, or SIEM.</p>
             </div>
-            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors">
+            <div class="p-8 rounded-3xl border border-white/10 bg-navy-800 hover:border-cyan/50 transition-colors">
                 <h3 class="text-xl font-bold text-white mb-4">Actionable Verdicts</h3>
                 <p class="text-gray-400">Clear "Malicious", "Suspicious", or "Clean" verdicts with a detailed report on the technical findings.</p>
             </div>
-            <div class="p-8 rounded-3xl border border-white/10 hover:border-cyan/50 transition-colors">
+            <div class="p-8 rounded-3xl border border-white/10 bg-navy-800 hover:border-cyan/50 transition-colors">
                 <h3 class="text-xl font-bold text-white mb-4">SOC Integration</h3>
                 <p class="text-gray-400">Reduce your security team's workload by automating the triage of employee-reported suspicious emails.</p>
             </div>
@@ -144,7 +163,7 @@
     </section>
 
     <!-- CTA Banner -->
-    <section class="py-20 text-center bg-navy-800/30">
+    <section class="py-20 text-center bg-navy-800">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Be the first to know when PhishWatcher launches</h2>
             <p class="text-gray-400 mb-8">Register your interest and we'll notify you as soon as PhishWatcher is ready.</p>
@@ -155,7 +174,7 @@
     <!-- Footer -->
     <footer class="bg-navy-900 border-t border-white/10 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center text-gray-500 text-sm">&copy; 2025 CS CyberEdge | All Rights Reserved.</div>
+            <div class="text-center text-gray-500 text-sm">&copy; 2026 CS CyberEdge | All Rights Reserved.</div>
         </div>
     </footer>
 
@@ -210,16 +229,42 @@
             modal.classList.remove('flex');
             document.body.style.overflow = '';
         }
-        document.getElementById('interest-form').addEventListener('submit', function(e) {
+        document.getElementById('interest-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const name = document.getElementById('interest-name').value || 'Not provided';
             const email = document.getElementById('interest-email').value;
             const company = document.getElementById('interest-company').value || 'Not provided';
-            const subject = encodeURIComponent('Interest in PhishWatcher — CS CyberEdge');
-            const body = encodeURIComponent('Hi CS CyberEdge,\n\nI would like to register my interest in PhishWatcher.\n\nName: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\n\nPlease notify me when PhishWatcher becomes available.\n\nThank you');
-            window.open('mailto:contact@cscyberedge.com?subject=' + subject + '&body=' + body);
-            document.getElementById('interest-form-wrap').innerHTML = '<div class="text-center py-6"><div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h4 class="text-xl font-bold text-white mb-2">You\'re on the list!</h4><p class="text-gray-400 mb-6">We\'ll notify you as soon as PhishWatcher launches.</p><button onclick="closeInterestModal()" class="px-6 py-2.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-colors">Close</button></div>';
+            const btn = this.querySelector('button[type="submit"]');
+            const origText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            const prev = document.getElementById('interest-error');
+            if (prev) prev.remove();
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: '67ee1383-8914-4823-af51-fb707a8427b5',
+                        subject: 'Interest in PhishWatcher — CS CyberEdge',
+                        name: name, email: email, company: company,
+                        message: 'Product: PhishWatcher\nName: ' + name + '\nEmail: ' + email + '\nCompany: ' + company
+                    })
+                });
+                const json = await res.json();
+                if (!res.ok || !json.success) throw new Error(json.message || 'Submission failed');
+                document.getElementById('interest-form-wrap').innerHTML = '<div class="text-center py-6"><div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h4 class="text-xl font-bold text-white mb-2">You\'re on the list!</h4><p class="text-gray-400 mb-6">We\'ll notify you as soon as PhishWatcher launches.</p><button onclick="closeInterestModal()" class="px-6 py-2.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-colors">Close</button></div>';
+            } catch {
+                btn.disabled = false;
+                btn.textContent = origText;
+                const p = document.createElement('p');
+                p.id = 'interest-error';
+                p.className = 'mt-3 text-sm text-red-400 text-center';
+                p.textContent = 'Something went wrong. Please try again.';
+                btn.after(p);
+            }
         });
     </script>
+    <script src="circuit-bg.js"></script>
 </body>
 </html>

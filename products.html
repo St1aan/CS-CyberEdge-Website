@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <title>Products | CS CyberEdge Security Suite</title>
+    <meta name="description" content="Explore the CS CyberEdge product suite — BreachWatcher, PhishWatcher, SurfaceWatch, SecureScore, SocialDefender, and more. Proactive security tools for every organisation.">
+    <link rel="canonical" href="https://www.cscyberedge.com/products.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CS CyberEdge">
+    <meta property="og:title" content="Products | CS CyberEdge Security Suite">
+    <meta property="og:description" content="Explore the CS CyberEdge product suite — BreachWatcher, PhishWatcher, SurfaceWatch, SecureScore, SocialDefender, and more. Proactive security tools for every organisation.">
+    <meta property="og:url" content="https://www.cscyberedge.com/products.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Products | CS CyberEdge Security Suite">
+    <meta name="twitter:description" content="Explore the CS CyberEdge product suite — BreachWatcher, PhishWatcher, SurfaceWatch, SecureScore, SocialDefender, and more. Proactive security tools for every organisation.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -26,16 +39,17 @@
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="shield" class="w-8 h-8 text-cyan"></i>
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="Images/logo.png" alt="CS CyberEdge" class="h-10 w-auto">
                     <span class="text-xl font-extrabold tracking-tight text-white">CS <span class="text-cyan">CyberEdge</span></span>
-                </div>
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Home</a>
                     <a href="products.html" class="text-white hover:text-cyan transition-colors font-medium">Products</a>
                     <a href="services.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Services</a>
                     <a href="about.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">About</a>
                     <a href="contact.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Contact</a>
+                    <a href="intelboard.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">IntelBoard</a>
                     <a href="contact.html" class="bg-gradient-cyber px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-cyan/20">Get Started</a>
                 </div>
                 <div class="md:hidden">
@@ -49,6 +63,7 @@
             <a href="services.html" class="block py-2 text-gray-300 font-medium">Services</a>
             <a href="about.html" class="block py-2 text-gray-300 font-medium">About</a>
             <a href="contact.html" class="block py-2 text-gray-300 font-medium">Contact</a>
+            <a href="intelboard.html" class="block py-2 text-gray-300 font-medium">IntelBoard</a>
             <a href="contact.html" class="block mt-4 bg-gradient-cyber text-center py-3 rounded-xl font-bold">Get Started</a>
         </div>
     </nav>
@@ -69,15 +84,15 @@
     </header>
 
     <!-- Product Grid -->
-    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="bg-navy-900 py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
             <!-- BreachWatcher -->
-            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group" data-aos="fade-up">
+            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group flex flex-col" data-aos="fade-up">
                 <div class="absolute top-0 right-0 overflow-hidden w-28 h-28 z-10">
                     <div class="absolute top-5 -right-6 rotate-45 bg-emerald-500 text-white text-[10px] font-extrabold tracking-widest py-1 w-32 text-center shadow-sm">LIVE</div>
                 </div>
-                <div class="flex flex-col md:flex-row">
+                <div class="flex flex-col md:flex-row flex-1">
                     <div class="p-8 md:w-2/3">
                         <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan mb-6">
                             <i data-lucide="user-x"></i>
@@ -97,18 +112,18 @@
                             <a href="breachwatcher.html" class="inline-flex items-center gap-2 text-cyan font-bold hover:underline text-sm py-2.5">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                         </div>
                     </div>
-                    <div class="bg-gradient-cyber md:w-1/3 flex items-center justify-center p-12 opacity-80">
-                        <i data-lucide="shield-alert" class="w-24 h-24 text-white/50"></i>
+                    <div class="md:w-1/3 flex items-center justify-center p-6 bg-navy-900">
+                        <img src="Images/breachwatcher-logo.png" alt="BreachWatcher Logo" class="w-full h-full object-contain max-h-56">
                     </div>
                 </div>
             </div>
 
             <!-- PhishWatcher -->
-            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group flex flex-col" data-aos="fade-up" data-aos-delay="100">
                 <div class="absolute top-0 right-0 overflow-hidden w-28 h-28 z-10">
                     <div class="absolute top-5 -right-6 rotate-45 bg-amber-500 text-navy-900 text-[9px] font-extrabold tracking-wide py-1 w-32 text-center shadow-sm">COMING SOON</div>
                 </div>
-                <div class="flex flex-col md:flex-row">
+                <div class="flex flex-col md:flex-row flex-1">
                     <div class="p-8 md:w-2/3">
                         <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan mb-6">
                             <i data-lucide="mail-warning"></i>
@@ -125,18 +140,18 @@
                             <a href="phishwatcher.html" class="inline-flex items-center gap-2 text-cyan font-bold hover:underline text-sm py-2.5">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                         </div>
                     </div>
-                    <div class="bg-gradient-cyber md:w-1/3 flex items-center justify-center p-12 opacity-80">
-                        <i data-lucide="search" class="w-24 h-24 text-white/50"></i>
+                    <div class="md:w-1/3 flex items-center justify-center p-6 bg-navy-900">
+                        <img src="Images/phishwatcher-logo.png" alt="PhishWatcher Logo" class="w-full h-full object-contain max-h-56">
                     </div>
                 </div>
             </div>
 
             <!-- SurfaceWatch -->
-            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group" data-aos="fade-up">
+            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group flex flex-col" data-aos="fade-up">
                 <div class="absolute top-0 right-0 overflow-hidden w-28 h-28 z-10">
                     <div class="absolute top-5 -right-6 rotate-45 bg-amber-500 text-navy-900 text-[9px] font-extrabold tracking-wide py-1 w-32 text-center shadow-sm">COMING SOON</div>
                 </div>
-                <div class="flex flex-col md:flex-row">
+                <div class="flex flex-col md:flex-row flex-1">
                     <div class="p-8 md:w-2/3">
                         <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan mb-6">
                             <i data-lucide="scan"></i>
@@ -160,11 +175,11 @@
             </div>
 
             <!-- SocialDefender -->
-            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group flex flex-col" data-aos="fade-up" data-aos-delay="100">
                 <div class="absolute top-0 right-0 overflow-hidden w-28 h-28 z-10">
                     <div class="absolute top-5 -right-6 rotate-45 bg-amber-500 text-navy-900 text-[9px] font-extrabold tracking-wide py-1 w-32 text-center shadow-sm">COMING SOON</div>
                 </div>
-                <div class="flex flex-col md:flex-row">
+                <div class="flex flex-col md:flex-row flex-1">
                     <div class="p-8 md:w-2/3">
                         <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan mb-6">
                             <i data-lucide="shield-check"></i>
@@ -188,11 +203,11 @@
             </div>
 
             <!-- SecureScore — full-width featured -->
-            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group lg:col-span-2" data-aos="fade-up">
+            <div class="relative overflow-hidden bg-navy-800 rounded-3xl border border-white/5 hover-glow transition-all group lg:col-span-2 flex flex-col" data-aos="fade-up">
                 <div class="absolute top-0 right-0 overflow-hidden w-28 h-28 z-10">
                     <div class="absolute top-5 -right-6 rotate-45 bg-amber-500 text-navy-900 text-[9px] font-extrabold tracking-wide py-1 w-32 text-center shadow-sm">COMING SOON</div>
                 </div>
-                <div class="flex flex-col md:flex-row">
+                <div class="flex flex-col md:flex-row flex-1">
                     <div class="p-8 md:p-12 md:w-2/3">
                         <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan mb-6">
                             <i data-lucide="clipboard-check"></i>
@@ -243,11 +258,11 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Contact</h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li><a href="mailto:contact@cscyberedge.com" class="hover:text-cyan transition-colors">contact@cscyberedge.com</a></li>
+                        <li><a href="contact.html" class="hover:text-cyan transition-colors">Get in Touch</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8">&copy; 2025 CS CyberEdge | All Rights Reserved.</div>
+            <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8">&copy; 2026 CS CyberEdge | All Rights Reserved.</div>
         </div>
     </footer>
 
@@ -258,5 +273,6 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
     </script>
+    <script src="circuit-bg.js"></script>
 </body>
 </html>

@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <title>CS CyberEdge | Proactive Cybersecurity for Growing Organisations</title>
-    <meta name="description" content="CS CyberEdge provides proactive cybersecurity solutions for small and medium organisations. Founded by CISSP, CISM, OSCP, and CCSKv5 certified professionals with a decade of experience in financial and technology sectors.">
+    <meta name="description" content="CS CyberEdge delivers proactive cybersecurity for growing organisations — breach monitoring, threat hunting, incident response, and vCISO advisory by CISSP, CISM & OSCP-certified experts.">
+    <link rel="canonical" href="https://www.cscyberedge.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CS CyberEdge">
+    <meta property="og:title" content="CS CyberEdge | Proactive Cybersecurity for Growing Organisations">
+    <meta property="og:description" content="CS CyberEdge delivers proactive cybersecurity for growing organisations — breach monitoring, threat hunting, incident response, and vCISO advisory by CISSP, CISM & OSCP-certified experts.">
+    <meta property="og:url" content="https://www.cscyberedge.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CS CyberEdge | Proactive Cybersecurity for Growing Organisations">
+    <meta name="twitter:description" content="CS CyberEdge delivers proactive cybersecurity for growing organisations — breach monitoring, threat hunting, incident response, and vCISO advisory by CISSP, CISM & OSCP-certified experts.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
@@ -51,6 +63,11 @@
                               linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
             background-size: 50px 50px;
         }
+    
+        /* Fix: bg-navy-800 opacity variants (Tailwind can't resolve custom colours with / modifier) */
+        .bg-navy-800\/20 { background-color: rgba(17, 34, 64, 0.20); }
+        .bg-navy-800\/30 { background-color: rgba(17, 34, 64, 0.30); }
+        .bg-navy-800\/50 { background-color: rgba(17, 34, 64, 0.50); }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -59,10 +76,10 @@
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="shield" class="w-8 h-8 text-cyan"></i>
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="Images/logo.png" alt="CS CyberEdge" class="h-10 w-auto">
                     <span class="text-xl font-extrabold tracking-tight text-white">CS <span class="text-cyan">CyberEdge</span></span>
-                </div>
+                </a>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
@@ -71,6 +88,7 @@
                     <a href="services.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Services</a>
                     <a href="about.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">About</a>
                     <a href="contact.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Contact</a>
+                    <a href="intelboard.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">IntelBoard</a>
                     <a href="products.html" class="bg-gradient-cyber px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-cyan/20">Get Started</a>
                 </div>
 
@@ -89,6 +107,7 @@
             <a href="services.html" class="block py-2 text-gray-300 font-medium">Services</a>
             <a href="about.html" class="block py-2 text-gray-300 font-medium">About</a>
             <a href="contact.html" class="block py-2 text-gray-300 font-medium">Contact</a>
+            <a href="intelboard.html" class="block py-2 text-gray-300 font-medium">IntelBoard</a>
             <a href="products.html" class="block mt-4 bg-gradient-cyber text-center py-3 rounded-xl font-bold">Get Started</a>
         </div>
     </nav>
@@ -113,7 +132,7 @@
     </header>
 
     <!-- Value Prop Strip -->
-    <section class="py-12 bg-navy-800/50 border-y border-white/5">
+    <section class="py-12 bg-navy-800 border-y border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="flex items-center gap-4 group" data-aos="fade-up">
@@ -148,7 +167,7 @@
     </section>
 
     <!-- Product Suite Overview -->
-    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="bg-navy-900 py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">The Product Suite</h2>
             <p class="text-gray-400 max-w-2xl mx-auto">Comprehensive cyber risk coverage — from breach detection and surface monitoring to risk assessment and social defence.</p>
@@ -213,7 +232,7 @@
     </section>
 
     <!-- Professional Services -->
-    <section class="py-24 bg-navy-800/30">
+    <section class="py-24 bg-navy-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Professional Services</h2>
@@ -248,6 +267,27 @@
                     <p class="text-gray-400 mb-6">Custom detection rule development and tuning to surface real threats and reduce alert fatigue.</p>
                     <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
                 </a>
+
+                <a href="vciso.html" class="bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group" data-aos="fade-up">
+                    <i data-lucide="user-cog" class="w-10 h-10 text-cyan mb-6"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">vCISO / Fractional CISO</h3>
+                    <p class="text-gray-400 mb-6">Strategic security leadership on a flexible retainer — roadmap, governance, policy, and board reporting without a full-time hire.</p>
+                    <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+                </a>
+
+                <a href="security-awareness-training.html" class="bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group" data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="graduation-cap" class="w-10 h-10 text-cyan mb-6"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Security Awareness Training</h3>
+                    <p class="text-gray-400 mb-6">Phishing simulations and targeted training that turn your workforce into a measurable line of defence against human-targeted attacks.</p>
+                    <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+                </a>
+
+                <a href="tabletop-exercises.html" class="bg-navy-800 p-8 rounded-2xl border border-white/5 transition-all hover-glow group" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="play-circle" class="w-10 h-10 text-cyan mb-6"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Tabletop Exercises & IR Planning</h3>
+                    <p class="text-gray-400 mb-6">Scenario-based exercises that stress-test your incident response capability before a real attacker does — with IR plan development included.</p>
+                    <div class="text-cyan font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
+                </a>
             </div>
         </div>
     </section>
@@ -268,7 +308,7 @@
 
 
     <!-- CTA Banner -->
-    <section class="py-24 text-center">
+    <section class="bg-navy-900 py-24 text-center">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to protect what matters?</h2>
             <p class="text-xl text-gray-400 mb-10">Partner with CS CyberEdge to close the front door on cyber threats before they impact your organisation.</p>
@@ -299,17 +339,12 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Contact</h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li><a href="mailto:contact@cscyberedge.com" class="hover:text-cyan transition-colors">contact@cscyberedge.com</a></li>
-                        <li class="flex gap-4 mt-6">
-                            <a href="#" class="w-10 h-10 rounded-lg bg-navy-800 flex items-center justify-center hover:bg-cyan/20 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                            <a href="#" class="w-10 h-10 rounded-lg bg-navy-800 flex items-center justify-center hover:bg-cyan/20 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                            <a href="#" class="w-10 h-10 rounded-lg bg-navy-800 flex items-center justify-center hover:bg-cyan/20 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
-                        </li>
+                        <li><a href="contact.html" class="hover:text-cyan transition-colors">Get in Touch</a></li>
                     </ul>
                 </div>
             </div>
             <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8">
-                &copy; 2025 CS CyberEdge | All Rights Reserved.
+                &copy; 2026 CS CyberEdge | All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -333,5 +368,6 @@
             mobileMenu.classList.toggle('hidden');
         });
     </script>
+    <script src="circuit-bg.js"></script>
 </body>
 </html>

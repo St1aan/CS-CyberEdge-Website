@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <title>IntelBoard — Live Cybersecurity Intelligence | CS CyberEdge</title>
+    <meta name="description" content="IntelBoard aggregates live threat intelligence from BleepingComputer, The Hacker News, Krebs on Security, CISA, Dark Reading, and more — all in one place.">
+    <link rel="canonical" href="https://www.cscyberedge.com/intelboard.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CS CyberEdge">
+    <meta property="og:title" content="IntelBoard — Live Cybersecurity Intelligence | CS CyberEdge">
+    <meta property="og:description" content="IntelBoard aggregates live threat intelligence from BleepingComputer, The Hacker News, Krebs on Security, CISA, Dark Reading, and more — all in one place.">
+    <meta property="og:url" content="https://www.cscyberedge.com/intelboard.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IntelBoard — Live Cybersecurity Intelligence | CS CyberEdge">
+    <meta name="twitter:description" content="IntelBoard aggregates live threat intelligence from BleepingComputer, The Hacker News, Krebs on Security, CISA, Dark Reading, and more — all in one place.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a192f; color: #e6f1ff; }
+        .bg-navy-900 { background-color: #0a192f; }
+        .bg-navy-800 { background-color: #112240; }
+        .text-cyan { color: #00d2ff; }
+        .bg-gradient-cyber { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); }
+        .glass { background: rgba(17, 34, 64, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .grid-bg {
+            background-image: linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .feed-card {
+            background: rgba(17, 34, 64, 0.97);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feed-card:hover {
+            border-color: rgba(0, 210, 255, 0.25);
+            box-shadow: 0 0 24px rgba(0, 210, 255, 0.07);
+        }
+        .article-link {
+            display: block;
+            padding: 0.65rem 0.5rem;
+            margin: 0 -0.5rem;
+            border-radius: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background 0.15s;
+        }
+        .article-link:last-child { border-bottom: none; }
+        .article-link:hover { background: rgba(0, 210, 255, 0.04); }
+        .article-link:hover .article-title { color: #00d2ff; }
+        .article-title {
+            font-size: 0.8125rem;
+            line-height: 1.4;
+            color: #cbd5e1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color 0.15s;
+        }
+        .article-time { font-size: 0.7rem; color: #475569; margin-top: 0.2rem; }
+
+        /* Source accent colours */
+        .src-bleeping  { --c: #ff6b35; }
+        .src-hackernews{ --c: #f87171; }
+        .src-krebs     { --c: #60a5fa; }
+        .src-darkreading{ --c: #a78bfa; }
+        .src-record    { --c: #34d399; }
+        .src-securityweek{ --c: #fbbf24; }
+        .src-cisa      { --c: #00d2ff; }
+
+        .src-icon {
+            width: 2.25rem; height: 2.25rem; border-radius: 0.5rem;
+            display: flex; align-items: center; justify-content: center;
+            background: color-mix(in srgb, var(--c) 15%, transparent);
+            border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
+            color: var(--c);
+            flex-shrink: 0;
+        }
+        .live-dot {
+            width: 0.5rem; height: 0.5rem; border-radius: 50%;
+            background: var(--c);
+        }
+        .live-dot.pulsing { animation: blink 2s ease-in-out infinite; }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+
+        @keyframes shimmer {
+            0%   { background-position: -200% 0; }
+            100% { background-position:  200% 0; }
+        }
+        .skeleton {
+            background: linear-gradient(90deg,
+                rgba(255,255,255,0.04) 25%,
+                rgba(255,255,255,0.09) 50%,
+                rgba(255,255,255,0.04) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.6s infinite;
+            border-radius: 4px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spin { animation: spin 0.8s linear infinite; }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3a7bd5; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="Images/logo.png" alt="CS CyberEdge" class="h-10 w-auto">
+                    <span class="text-xl font-extrabold tracking-tight text-white">CS <span class="text-cyan">CyberEdge</span></span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Home</a>
+                    <a href="products.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Products</a>
+                    <a href="services.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Services</a>
+                    <a href="about.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-cyan transition-colors font-medium">Contact</a>
+                    <a href="intelboard.html" class="text-white hover:text-cyan transition-colors font-medium">IntelBoard</a>
+                    <a href="products.html" class="bg-gradient-cyber px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-cyan/20">Get Started</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-b border-white/10 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-300 font-medium">Home</a>
+            <a href="products.html" class="block py-2 text-gray-300 font-medium">Products</a>
+            <a href="services.html" class="block py-2 text-gray-300 font-medium">Services</a>
+            <a href="about.html" class="block py-2 text-gray-300 font-medium">About</a>
+            <a href="contact.html" class="block py-2 text-gray-300 font-medium">Contact</a>
+            <a href="intelboard.html" class="block py-2 text-white font-medium">IntelBoard</a>
+            <a href="products.html" class="block mt-4 bg-gradient-cyber text-center py-3 rounded-xl font-bold">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden grid-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/10 text-cyan text-sm font-bold mb-5" data-aos="fade-right">
+                        <i data-lucide="rss" class="w-3.5 h-3.5"></i>
+                        LIVE THREAT FEEDS
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight" data-aos="fade-up">
+                        Intel<span class="text-cyan">Board</span>
+                    </h1>
+                    <p class="text-base md:text-lg text-gray-400 max-w-xl" data-aos="fade-up" data-aos-delay="100">
+                        Real-time cybersecurity intelligence from the industry's most trusted sources, aggregated and updated every 15 minutes.
+                    </p>
+                </div>
+                <div class="flex flex-col items-start md:items-end gap-3 shrink-0" data-aos="fade-left">
+                    <div id="status-bar" class="flex items-center gap-2 text-xs text-gray-500">
+                        <div class="w-2 h-2 rounded-full bg-gray-600 pulsing" id="global-dot"></div>
+                        <span id="last-updated-text">Connecting to feeds…</span>
+                    </div>
+                    <button id="refresh-btn" onclick="refreshAllFeeds()"
+                        class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-cyan/30 text-cyan text-sm font-semibold hover:bg-cyan/10 transition-all">
+                        <i data-lucide="refresh-cw" id="refresh-icon" class="w-4 h-4"></i>
+                        Refresh All
+                    </button>
+                    <p class="text-xs text-gray-600">Auto-refresh every 15 min</p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-1/3 -left-24 w-80 h-80 bg-cyan/10 rounded-full blur-[130px]"></div>
+        <div class="absolute bottom-0 -right-24 w-96 h-96 bg-blue-700/10 rounded-full blur-[150px]"></div>
+    </header>
+
+    <!-- Feed Grid -->
+    <section class="bg-navy-900 py-10 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="feed-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-white/10 pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-gray-500 text-sm">&copy; 2026 CS CyberEdge | All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 800, once: true });
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        const FEEDS = [
+            {
+                id: 'bleeping',
+                name: 'BleepingComputer',
+                url: 'https://www.bleepingcomputer.com/feed/',
+                icon: 'monitor',
+                cls: 'src-bleeping'
+            },
+            {
+                id: 'hackernews',
+                name: 'The Hacker News',
+                url: 'https://feeds.feedburner.com/TheHackersNews',
+                icon: 'terminal',
+                cls: 'src-hackernews'
+            },
+            {
+                id: 'krebs',
+                name: 'Krebs on Security',
+                url: 'https://krebsonsecurity.com/feed/',
+                icon: 'user-check',
+                cls: 'src-krebs'
+            },
+            {
+                id: 'darkreading',
+                name: 'Dark Reading',
+                url: 'https://www.darkreading.com/rss.xml',
+                icon: 'moon',
+                cls: 'src-darkreading'
+            },
+            {
+                id: 'record',
+                name: 'The Record',
+                url: 'https://therecord.media/feed',
+                icon: 'radio',
+                cls: 'src-record'
+            },
+            {
+                id: 'securityweek',
+                name: 'SecurityWeek',
+                url: 'https://www.securityweek.com/feed/',
+                icon: 'calendar-check',
+                cls: 'src-securityweek'
+            },
+            {
+                id: 'cisa',
+                name: 'CISA Advisories',
+                url: 'https://www.cisa.gov/cybersecurity-advisories/cybersecurity-advisories.xml',
+                icon: 'shield-alert',
+                cls: 'src-cisa'
+            }
+        ];
+
+        const RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+
+        function timeAgo(dateStr) {
+            if (!dateStr) return '';
+            const d = new Date(dateStr);
+            if (isNaN(d)) return '';
+            const s = Math.floor((Date.now() - d) / 1000);
+            if (s < 60)   return `${s}s ago`;
+            if (s < 3600) return `${Math.floor(s / 60)}m ago`;
+            if (s < 86400)return `${Math.floor(s / 3600)}h ago`;
+            return `${Math.floor(s / 86400)}d ago`;
+        }
+
+        function safeText(str) {
+            const div = document.createElement('div');
+            div.appendChild(document.createTextNode(str || ''));
+            return div.innerHTML;
+        }
+
+        function skeletonRows() {
+            return Array(5).fill(0).map(() => `
+                <div style="padding:0.65rem 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+                    <div class="skeleton" style="height:12px;width:100%;margin-bottom:6px;"></div>
+                    <div class="skeleton" style="height:10px;width:38%;"></div>
+                </div>
+            `).join('');
+        }
+
+        async function fetchFeed(feed) {
+            const listEl = document.getElementById(`list-${feed.id}`);
+            const statusEl = document.getElementById(`status-${feed.id}`);
+            const dotEl = document.getElementById(`dot-${feed.id}`);
+
+            listEl.innerHTML = skeletonRows();
+            statusEl.textContent = 'Loading…';
+            dotEl.style.background = '#374151';
+            dotEl.classList.remove('pulsing');
+
+            try {
+                const res = await fetch(`${RSS2JSON}${encodeURIComponent(feed.url)}`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                if (data.status !== 'ok' || !data.items?.length) throw new Error(data.message || 'Empty feed');
+                const items = data.items.map(item => ({
+                    title: item.title || 'Untitled',
+                    link:  item.link  || '#',
+                    pubDate: item.pubDate || ''
+                }));
+
+                listEl.innerHTML = items.map(item => `
+                    <a class="article-link" href="${safeText(item.link)}" target="_blank" rel="noopener noreferrer">
+                        <div class="article-title">${safeText(item.title)}</div>
+                        <div class="article-time">${timeAgo(item.pubDate)}</div>
+                    </a>
+                `).join('');
+
+                statusEl.textContent = `${items.length} articles`;
+                const cssVar = getComputedStyle(document.querySelector(`.${feed.cls}`)).getPropertyValue('--c').trim();
+                dotEl.style.background = cssVar || '#00d2ff';
+                dotEl.classList.add('pulsing');
+
+            } catch (err) {
+                listEl.innerHTML = `
+                    <div style="padding:2rem 0;text-align:center;">
+                        <div style="color:#374151;margin-bottom:0.5rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 style="margin:0 auto 0.5rem;">
+                                <line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/>
+                                <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/>
+                                <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                                <circle cx="12" cy="20" r="1"/>
+                            </svg>
+                        </div>
+                        <p style="font-size:0.8rem;color:#475569;">Unable to load feed</p>
+                        <button onclick="fetchFeed(FEEDS.find(f=>f.id==='${feed.id}'))"
+                            style="margin-top:0.6rem;font-size:0.75rem;color:#00d2ff;background:none;border:none;cursor:pointer;text-decoration:underline;">
+                            Retry
+                        </button>
+                    </div>
+                `;
+                statusEl.textContent = 'Unavailable';
+                dotEl.style.background = '#ef4444';
+                dotEl.classList.remove('pulsing');
+            }
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('feed-grid');
+            grid.innerHTML = FEEDS.map((feed, i) => `
+                <div class="feed-card ${feed.cls} rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="${i * 60}">
+                    <div style="padding:1.1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
+                        <div style="display:flex;align-items:center;gap:0.75rem;min-width:0;">
+                            <div class="src-icon">
+                                <i data-lucide="${feed.icon}" style="width:1rem;height:1rem;"></i>
+                            </div>
+                            <div style="min-width:0;">
+                                <div style="font-weight:700;font-size:0.875rem;color:#f1f5f9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${feed.name}</div>
+                                <div id="status-${feed.id}" style="font-size:0.7rem;color:#475569;">Connecting…</div>
+                            </div>
+                        </div>
+                        <div id="dot-${feed.id}" class="live-dot" style="background:#374151;flex-shrink:0;"></div>
+                    </div>
+                    <div id="list-${feed.id}" style="padding:0.4rem 1rem 0.75rem;max-height:22rem;overflow-y:auto;">
+                        ${skeletonRows()}
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        let refreshTimer = null;
+
+        async function refreshAllFeeds() {
+            const btn = document.getElementById('refresh-btn');
+            const icon = document.getElementById('refresh-icon');
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            icon.classList.add('spin');
+
+            document.getElementById('last-updated-text').textContent = 'Refreshing feeds…';
+            document.getElementById('global-dot').style.background = '#fbbf24';
+
+            await Promise.allSettled(FEEDS.map(feed => fetchFeed(feed)));
+
+            const now = new Date().toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('last-updated-text').textContent = `Updated at ${now}`;
+            document.getElementById('global-dot').style.background = '#34d399';
+
+            btn.disabled = false;
+            btn.style.opacity = '';
+            icon.classList.remove('spin');
+
+            // Schedule next auto-refresh
+            clearTimeout(refreshTimer);
+            refreshTimer = setTimeout(refreshAllFeeds, 15 * 60 * 1000);
+        }
+
+        // Boot
+        renderGrid();
+        refreshAllFeeds();
+    </script>
+    <script src="circuit-bg.js"></script>
+</body>
+</html>
