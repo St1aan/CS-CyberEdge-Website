@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <title>IntelBoard — Live Cybersecurity Intelligence | CS CyberEdge</title>
-    <meta name="description" content="IntelBoard aggregates live threat intelligence from BleepingComputer, The Hacker News, Krebs on Security, CISA, Dark Reading, and more — all in one place.">
+    <meta name="description" content="IntelBoard aggregates live threat intelligence from BleepingComputer, The Hacker News, Krebs on Security, CISA, Dark Reading, Security Affairs, and more — all in one place.">
     <link rel="canonical" href="https://www.cscyberedge.com/intelboard.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CS CyberEdge">
@@ -74,6 +74,7 @@
         .src-record    { --c: #34d399; }
         .src-securityweek{ --c: #fbbf24; }
         .src-cisa      { --c: #00d2ff; }
+        .src-securityaffairs { --c: #e879f9; }
 
         .src-icon {
             width: 2.25rem; height: 2.25rem; border-radius: 0.5rem;
@@ -259,6 +260,13 @@
                 url: 'https://www.cisa.gov/cybersecurity-advisories/cybersecurity-advisories.xml',
                 icon: 'shield-alert',
                 cls: 'src-cisa'
+            },
+            {
+                id: 'securityaffairs',
+                name: 'Security Affairs',
+                url: 'https://securityaffairs.com/feed',
+                icon: 'newspaper',
+                cls: 'src-securityaffairs'
             }
         ];
 
