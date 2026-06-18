@@ -274,7 +274,12 @@
 
         function timeAgo(dateStr) {
             if (!dateStr) return '';
-            const d = new Date(dateStr);
+            // rss2json returns "YYYY-MM-DD HH:MM:SS" in UTC with no timezone marker;
+            // without the Z suffix browsers parse it as local time, shifting the timestamp.
+            const normalized = dateStr.includes('T') || dateStr.includes('Z') || dateStr.includes('+')
+                ? dateStr
+                : dateStr.replace(' ', 'T') + 'Z';
+            const d = new Date(normalized);
             if (isNaN(d)) return '';
             const s = Math.max(0, Math.floor((Date.now() - d) / 1000));
             if (s < 60)   return `${s}s ago`;
