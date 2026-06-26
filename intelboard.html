@@ -270,8 +270,25 @@
             }
         ];
 
-        const RSS2JSON  = 'https://api.rss2json.com/v1/api.json?rss_url=';
-        const FEED2JSON = 'https://feed2json.org/convert?url=';
+        const RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+        const CORS_SH  = 'https://cors.sh/';
+
+        function parseFeedXml(xmlText) {
+            const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
+            if (doc.querySelector('parsererror')) throw new Error('XML parse error');
+            let els = [...doc.querySelectorAll('item')];
+            if (!els.length) els = [...doc.querySelectorAll('entry')];
+            if (!els.length) throw new Error('No feed items');
+            return els.slice(0, 10).map(el => {
+                const title = el.querySelector('title')?.textContent?.trim() || 'Untitled';
+                const linkEl = el.querySelector('link');
+                const link = linkEl?.getAttribute('href') || linkEl?.textContent?.trim() || '#';
+                const pubDate = el.querySelector('pubDate')?.textContent ||
+                                el.querySelector('published')?.textContent ||
+                                el.querySelector('updated')?.textContent || '';
+                return { title, link, pubDate };
+            });
+        }
 
         async function fetchFeedItems(feed) {
             // Primary: rss2json
@@ -287,16 +304,11 @@
                 }));
             } catch (_) {}
 
-            // Fallback: feed2json.org — different server infrastructure bypasses bot-blocking
-            const res = await fetch(`${FEED2JSON}${encodeURIComponent(feed.url)}`);
-            if (!res.ok) throw new Error(`feed2json HTTP ${res.status}`);
-            const data = await res.json();
-            if (!data.items?.length) throw new Error('Empty feed');
-            return data.items.map(item => ({
-                title: item.title || 'Untitled',
-                link:  item.url   || '#',
-                pubDate: item.date_published || item.date_modified || ''
-            }));
+            // Fallback: cors.sh proxy + browser-side XML parsing.
+            // cors.sh requires an Origin header which browsers send automatically on cross-origin fetches.
+            const res = await fetch(`${CORS_SH}${feed.url}`);
+            if (!res.ok) throw new Error(`cors.sh HTTP ${res.status}`);
+            return parseFeedXml(await res.text());
         }
 
         function timeAgo(dateStr) {
