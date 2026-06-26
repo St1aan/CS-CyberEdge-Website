@@ -398,7 +398,11 @@
             document.getElementById('last-updated-text').textContent = 'Refreshing feeds…';
             document.getElementById('global-dot').style.background = '#fbbf24';
 
-            await Promise.allSettled(FEEDS.map(feed => fetchFeed(feed)));
+            // Stagger requests 350ms apart to avoid rss2json rate limiting
+            const promises = FEEDS.map((feed, i) =>
+                new Promise(resolve => setTimeout(resolve, i * 350)).then(() => fetchFeed(feed))
+            );
+            await Promise.allSettled(promises);
 
             const now = new Date().toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' });
             document.getElementById('last-updated-text').textContent = `Updated at ${now}`;
