@@ -257,7 +257,7 @@
             {
                 id: 'cisa',
                 name: 'CISA Advisories',
-                url: 'https://www.cisa.gov/cybersecurity-advisories/cybersecurity-advisories.xml',
+                url: 'https://www.cisa.gov/cybersecurity-advisories/alerts.xml',
                 icon: 'shield-alert',
                 cls: 'src-cisa'
             },
@@ -270,7 +270,34 @@
             }
         ];
 
-        const RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+        const RSS2JSON  = 'https://api.rss2json.com/v1/api.json?rss_url=';
+        const FEED2JSON = 'https://feed2json.org/convert?url=';
+
+        async function fetchFeedItems(feed) {
+            // Primary: rss2json
+            try {
+                const res = await fetch(`${RSS2JSON}${encodeURIComponent(feed.url)}`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                if (data.status !== 'ok' || !data.items?.length) throw new Error(data.message || 'Empty');
+                return data.items.map(item => ({
+                    title: item.title || 'Untitled',
+                    link:  item.link  || '#',
+                    pubDate: item.pubDate || ''
+                }));
+            } catch (_) {}
+
+            // Fallback: feed2json.org — different server infrastructure bypasses bot-blocking
+            const res = await fetch(`${FEED2JSON}${encodeURIComponent(feed.url)}`);
+            if (!res.ok) throw new Error(`feed2json HTTP ${res.status}`);
+            const data = await res.json();
+            if (!data.items?.length) throw new Error('Empty feed');
+            return data.items.map(item => ({
+                title: item.title || 'Untitled',
+                link:  item.url   || '#',
+                pubDate: item.date_published || item.date_modified || ''
+            }));
+        }
 
         function timeAgo(dateStr) {
             if (!dateStr) return '';
@@ -314,15 +341,7 @@
             dotEl.classList.remove('pulsing');
 
             try {
-                const res = await fetch(`${RSS2JSON}${encodeURIComponent(feed.url)}`);
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                const data = await res.json();
-                if (data.status !== 'ok' || !data.items?.length) throw new Error(data.message || 'Empty feed');
-                const items = data.items.map(item => ({
-                    title: item.title || 'Untitled',
-                    link:  item.link  || '#',
-                    pubDate: item.pubDate || ''
-                }));
+                const items = await fetchFeedItems(feed);
 
                 listEl.innerHTML = items.map(item => `
                     <a class="article-link" href="${safeText(item.link)}" target="_blank" rel="noopener noreferrer">
