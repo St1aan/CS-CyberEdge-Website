@@ -306,7 +306,9 @@
 
             // Fallback: cors.sh proxy + browser-side XML parsing.
             // cors.sh requires an Origin header which browsers send automatically on cross-origin fetches.
-            const res = await fetch(`${CORS_SH}${feed.url}`);
+            // cache:'no-store' prevents the browser from sending If-None-Match on revalidation, which
+            // would cause cors.sh to pass through a 304 (not ok) and break this feed card.
+            const res = await fetch(`${CORS_SH}${feed.url}`, { cache: 'no-store' });
             if (!res.ok) throw new Error(`cors.sh HTTP ${res.status}`);
             return parseFeedXml(await res.text());
         }
