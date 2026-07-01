@@ -75,6 +75,11 @@
         .src-securityweek{ --c: #fbbf24; }
         .src-cisa      { --c: #00d2ff; }
         .src-securityaffairs { --c: #e879f9; }
+        .src-register    { --c: #f97316; }
+        .src-databreaches{ --c: #fb7185; }
+        .src-404media    { --c: #a3e635; }
+        .src-ars         { --c: #38bdf8; }
+        .src-techdirt    { --c: #c084fc; }
 
         .src-icon {
             width: 2.25rem; height: 2.25rem; border-radius: 0.5rem;
@@ -267,6 +272,41 @@
                 url: 'https://securityaffairs.com/feed',
                 icon: 'newspaper',
                 cls: 'src-securityaffairs'
+            },
+            {
+                id: 'register',
+                name: 'The Register',
+                url: 'https://www.theregister.com/security/headlines.atom',
+                icon: 'cpu',
+                cls: 'src-register'
+            },
+            {
+                id: 'databreaches',
+                name: 'DataBreaches.net',
+                url: 'https://www.databreaches.net/feed/',
+                icon: 'database',
+                cls: 'src-databreaches'
+            },
+            {
+                id: '404media',
+                name: '404 Media',
+                url: 'https://www.404media.co/feed',
+                icon: 'search-x',
+                cls: 'src-404media'
+            },
+            {
+                id: 'ars',
+                name: 'Ars Technica',
+                url: 'https://feeds.arstechnica.com/arstechnica/security',
+                icon: 'flask-conical',
+                cls: 'src-ars'
+            },
+            {
+                id: 'techdirt',
+                name: 'TechDirt',
+                url: 'https://www.techdirt.com/feed/',
+                icon: 'gavel',
+                cls: 'src-techdirt'
             }
         ];
 
