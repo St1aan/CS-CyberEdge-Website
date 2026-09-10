@@ -6,17 +6,17 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <title>PhishWatcher — AI Phishing Detection | CS CyberEdge</title>
-    <meta name="description" content="PhishWatcher delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
-    <link rel="canonical" href="https://www.cscyberedge.com/phishwatcher.html">
+    <title>PhishCheck — AI Phishing Detection | CS CyberEdge</title>
+    <meta name="description" content="PhishCheck delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
+    <link rel="canonical" href="https://www.cscyberedge.com/phishcheck.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CS CyberEdge">
-    <meta property="og:title" content="PhishWatcher — AI Phishing Detection | CS CyberEdge">
-    <meta property="og:description" content="PhishWatcher delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
-    <meta property="og:url" content="https://www.cscyberedge.com/phishwatcher.html">
+    <meta property="og:title" content="PhishCheck — AI Phishing Detection | CS CyberEdge">
+    <meta property="og:description" content="PhishCheck delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
+    <meta property="og:url" content="https://www.cscyberedge.com/phishcheck.html">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="PhishWatcher — AI Phishing Detection | CS CyberEdge">
-    <meta name="twitter:description" content="PhishWatcher delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
+    <meta name="twitter:title" content="PhishCheck — AI Phishing Detection | CS CyberEdge">
+    <meta name="twitter:description" content="PhishCheck delivers AI-driven phishing email analysis — detecting malicious links, suspicious attachments, and social engineering tactics before your team clicks.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="md:w-1/2" data-aos="zoom-in">
                     <div class="relative">
-                        <img src="Images/phishwatcher-logo.png" alt="PhishWatcher Logo"
+                        <img src="Images/phishcheck-logo.png" alt="PhishCheck Logo"
                              class="w-full h-80 object-contain rounded-3xl">
                         <div class="absolute -top-4 -right-4 bg-amber-500 text-navy-900 px-5 py-2 rounded-lg font-bold shadow-lg text-sm">PHISH DETECTED</div>
                     </div>
@@ -113,7 +113,7 @@
                 <div>
                     <h2 class="text-3xl font-bold text-white mb-8">What It Does</h2>
                     <div class="space-y-6 text-gray-400 text-lg">
-                        <p>PhishWatcher provides an automated first line of defence against email-borne threats. By integrating with your mail flow or providing a simple submission portal, it subjects every suspicious email to a battery of technical tests.</p>
+                        <p>PhishCheck provides an automated first line of defence against email-borne threats. By integrating with your mail flow or providing a simple submission portal, it subjects every suspicious email to a battery of technical tests.</p>
                         <p>It dissects headers, inspects attachments in secure sandboxes, and follows redirects to identify the true destination of embedded links. The result is an actionable verdict delivered in seconds, not hours.</p>
                     </div>
                 </div>
@@ -165,8 +165,8 @@
     <!-- CTA Banner -->
     <section class="py-20 text-center bg-navy-800">
         <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Be the first to know when PhishWatcher launches</h2>
-            <p class="text-gray-400 mb-8">Register your interest and we'll notify you as soon as PhishWatcher is ready.</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Be the first to know when PhishCheck launches</h2>
+            <p class="text-gray-400 mb-8">Register your interest and we'll notify you as soon as PhishCheck is ready.</p>
             <button onclick="openInterestModal()" class="inline-block bg-gradient-cyber px-10 py-5 rounded-full font-bold text-xl hover:opacity-90 transition-opacity shadow-2xl shadow-cyan/30 cursor-pointer">Register Your Interest</button>
         </div>
     </section>
@@ -188,7 +188,7 @@
                 <i data-lucide="bell" class="w-6 h-6"></i>
             </div>
             <h3 class="text-2xl font-bold text-white mb-2">Register Your Interest</h3>
-            <p class="text-gray-400 mb-6">Be among the first to know when PhishWatcher launches.</p>
+            <p class="text-gray-400 mb-6">Be among the first to know when PhishCheck launches.</p>
             <div id="interest-form-wrap">
                 <form id="interest-form">
                     <div class="mb-4">
@@ -246,14 +246,14 @@
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify({
                         access_key: '67ee1383-8914-4823-af51-fb707a8427b5',
-                        subject: 'Interest in PhishWatcher — CS CyberEdge',
+                        subject: 'Interest in PhishCheck — CS CyberEdge',
                         name: name, email: email, company: company,
-                        message: 'Product: PhishWatcher\nName: ' + name + '\nEmail: ' + email + '\nCompany: ' + company
+                        message: 'Product: PhishCheck\nName: ' + name + '\nEmail: ' + email + '\nCompany: ' + company
                     })
                 });
                 const json = await res.json();
                 if (!res.ok || !json.success) throw new Error(json.message || 'Submission failed');
-                document.getElementById('interest-form-wrap').innerHTML = '<div class="text-center py-6"><div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h4 class="text-xl font-bold text-white mb-2">You\'re on the list!</h4><p class="text-gray-400 mb-6">We\'ll notify you as soon as PhishWatcher launches.</p><button onclick="closeInterestModal()" class="px-6 py-2.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-colors">Close</button></div>';
+                document.getElementById('interest-form-wrap').innerHTML = '<div class="text-center py-6"><div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></div><h4 class="text-xl font-bold text-white mb-2">You\'re on the list!</h4><p class="text-gray-400 mb-6">We\'ll notify you as soon as PhishCheck launches.</p><button onclick="closeInterestModal()" class="px-6 py-2.5 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-colors">Close</button></div>';
             } catch {
                 btn.disabled = false;
                 btn.textContent = origText;
